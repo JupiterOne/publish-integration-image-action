@@ -10,6 +10,10 @@ inputs:
   docker-password:  # id of input
     description: 'Docker username to auth and publish'
     required: true
+  push-to-registry:  # id of input
+    description: 'Determines if the built image be pushed to the registry'
+    required: false
+    default: 'false'
 runs:
   using: "composite"
   steps:
@@ -46,6 +50,7 @@ runs:
       with:
         context: .
         platforms: linux/amd64,linux/arm64
-        push: ${{ github.event_name != 'pull_request' }}
+        # push: ${{ github.event_name != 'pull_request' }}
+        push: ${{ inputs.push-to-registry == 'true' }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
