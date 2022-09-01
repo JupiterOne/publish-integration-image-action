@@ -26,7 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: publish-image
-        uses: jupiterone/publish-integration-image-action@v1.0.3-beta
+        if: env.publish == 'true' # Only publish when releasing a new version to main
+        uses: jupiterone/publish-integration-image-action@v1
         with:
           package-name: 'jupiterone/graph-kubernetes'
           docker-username: ${{ secrets.DOCKERHUB_USERNAME }}
