@@ -23,10 +23,10 @@ jobs:
 
   publish-image:
     runs-on: ubuntu-latest
+    if: env.publish == 'true' # Only publish when releasing a new version to main
     steps:
       - uses: actions/checkout@v3
       - id: publish-image
-        if: env.publish == 'true' # Only publish when releasing a new version to main
         uses: jupiterone/publish-integration-image-action@v1
         with:
           package-name: 'jupiterone/graph-kubernetes'
