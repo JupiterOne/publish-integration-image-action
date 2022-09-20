@@ -62,6 +62,6 @@ jobs:
       with:
         context: .
         platforms: linux/amd64,linux/arm64
-        push: ${{ inputs.push-to-registry == true }}
+        push: ${{ inputs.push-to-registry }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
