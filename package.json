@@ -1,0 +1,10 @@
+{
+  "name": "publish-integration-image-action",
+  "version": "0.0.0",
+  "description": "Automatically generated package.json, please edit manually",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JupiterOne/publish-integration-image-action.git"
+  },
+  "license": "UNLICENSED"
+}
